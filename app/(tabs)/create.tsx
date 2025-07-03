@@ -10,13 +10,13 @@ import * as ImagePicker from "expo-image-picker";
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import {
-    ActivityIndicator,
-    KeyboardAvoidingView,
-    ScrollView,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  ActivityIndicator,
+  KeyboardAvoidingView,
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 export default function CreateScreen() {
@@ -62,6 +62,9 @@ export default function CreateScreen() {
 
       const { storageId } = JSON.parse(uploadResult.body);
       await createPost({ storageId, caption });
+
+      setSelectedImage(null);
+      setCaption("");
 
       router.push("/(tabs)");
     } catch (error) {
